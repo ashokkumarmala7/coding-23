@@ -7,7 +7,7 @@ import BlogItem from '../BlogItem'
 class BlogList extends Component {
   state = {
     isLoading: true,
-    blogData: [],
+    blogsData: [],
   }
 
   componentDidMount() {
@@ -15,7 +15,7 @@ class BlogList extends Component {
   }
 
   getBlogsData = async () => {
-    const response = await fetch('https://ccbp.in.blogs')
+    const response = await fetch('https://apis.ccbp.in/blogs')
     const data = await response.json()
     const formattedData = data.map(eachItem => ({
       id: eachItem.id,
@@ -25,11 +25,11 @@ class BlogList extends Component {
       imageUrl: eachItem.image_url,
       avatarUrl: eachItem.avatar_url,
     }))
-    this.setState({blogData: formattedData, isLoading: false})
+    this.setState({blogsData: formattedData, isLoading: false})
   }
 
   render() {
-    const {blogData, isLoading} = this.state
+    const {blogsData, isLoading} = this.state
 
     return (
       <div className="blog-list-container">
@@ -39,8 +39,8 @@ class BlogList extends Component {
           </div>
         ) : (
           <ul className="blogs-list">
-            {blogData.map(eachBlogItem => (
-              <BlogItem key={eachBlogItem.id} blogData={eachBlogItem} />
+            {blogsData.map(eachBlogItem => (
+              <BlogItem key={eachBlogItem.id} blogItemDetails={eachBlogItem} />
             ))}
           </ul>
         )}

@@ -17,9 +17,9 @@
 @media screen and (min-width: 575px) {
   .blog-item-container {
     flex-direction: row;
-    max-width: 660px;
+    max-width: 680px;
     height: 170px;
-    width: 15px;
+    margin: 15px;
   }
 }
 .blog-item-image {
@@ -63,8 +63,8 @@
   font-size: 14px;
 }
 .avatar {
-  height: 30px;
-  width: 30px;
+  height: 24px;
+  width: 24px;
   margin-right: 10px;
-  border-right: 50%;
+  border-radius: 50%;
 }
